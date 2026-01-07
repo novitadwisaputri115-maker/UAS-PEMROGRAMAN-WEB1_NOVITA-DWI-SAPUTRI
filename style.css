@@ -1,0 +1,308 @@
+
+#login-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0f172a 0%, #2563eb 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.login-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.login-card h2 {
+    color: var(--secondary);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.login-card p {
+    color: #64748b;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+/* Input Group Styling */
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    color: var(--secondary);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s;
+    font-size: 1rem;
+}
+
+.input-group input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+/* Login Button */
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.login-btn:active {
+    transform: translateY(0);
+}
+
+/* Header User Controls */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left; /* Mengatur teks header ke kiri */
+}
+
+.user-control {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.logout-btn {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logout-btn:hover {
+    background: #dc2626;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+/* Error Message */
+#login-error {
+    background: #fef2f2;
+    color: #b91c1c;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    margin-top: 15px;
+    border: 1px solid #fee2e2;
+}
+:root {
+    --primary: #2563eb;
+    --secondary: #1e293b;
+    --bg-light: #f8fafc;
+    --text-dark: #334155;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+header {
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    color: var(--white);
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    gap: 20px;
+    padding: 0 15px;
+}
+
+/* Sidebar */
+.sidebar {
+    flex: 0 0 280px;
+    background: var(--white);
+    border-radius: 12px;
+    padding: 20px;
+    height: fit-content;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.nav-header {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.sidebar ul { list-style: none; }
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-dark);
+    padding: 12px 15px;
+    display: block;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    transition: all 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.nav-link i { margin-right: 10px; width: 20px; }
+
+/* Content Card */
+.content { flex: 1; }
+
+.card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 { margin-bottom: 20px; color: var(--secondary); }
+
+.info-box {
+    background: #eff6ff;
+    border-left: 4px solid var(--primary);
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.code-block {
+    background: #1e293b;
+    color: #f8fafc;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    margin-top: 15px;
+    overflow-x: auto;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.stat-box {
+    background: var(--bg-light);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+/* Table */
+.materi-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+.materi-table th, .materi-table td {
+    border: 1px solid #e2e8f0;
+    padding: 12px;
+    text-align: left;
+}
+
+footer { text-align: center; padding: 40px; color: #64748b; }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .container { flex-direction: column; }
+    .sidebar { flex: none; width: 100%; }
+}
+/* Memberikan jarak otomatis di bawah setiap judul */
+h2, h3 {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+/* Memberikan jarak antar paragraf */
+p {
+    margin-bottom: 15px;
+}
+
+/* Memberikan jarak di dalam kartu materi */
+.card {
+    padding: 40px; /* Jarak dari tepi dalam kotak */
+    margin-bottom: 30px; /* Jarak antar kotak materi */
+}
+
+/* Memberikan jarak pada list materi */
+ul li {
+    margin-bottom: 8px;
+}

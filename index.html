@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Basis Data - Portal Materi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div id="login-page">
+        <div class="login-card">
+            <i class="fas fa-user-shield fa-3x" style="color: #2563eb; margin-bottom: 20px;"></i>
+            <h2>Portal Akademik</h2>
+            <p>Silakan login untuk mengakses materi</p>
+            
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" id="username" placeholder="Masukkan admin">
+            </div>
+            
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="Masukkan 12345">
+            </div>
+            
+            <button onclick="handleLogin()" class="login-btn">Masuk Ke Materi</button>
+            <p id="login-error" style="color: #e74c3c; display: none; margin-top: 15px;">Username atau Password salah!</p>
+        </div>
+    </div>
+
+    <div id="main-app" style="display: none;">
+        <header>
+            <div class="header-content">
+                <div>
+                    <h1><i class="fas fa-database"></i> Course: Basis Data</h1>
+                    <p>Implementasi Struktur Data & Pengelolaan Informasi Efisien</p>
+                </div>
+                <div class="user-control">
+                    <span id="display-user"></span>
+                    <button onclick="handleLogout()" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+            <nav class="sidebar">
+                <div class="nav-header">Materi Perkuliahan</div>
+                <ul>
+                    <li><a href="#" id="link-home" class="nav-link active" onclick="showContent('home')"><i class="fas fa-home"></i> Beranda</a></li>
+                    <li><a href="#" id="link-p1" class="nav-link" onclick="showContent('p1')"><i class="fas fa-book"></i> Pertemuan 1</a></li>
+                    <li><a href="#" id="link-p2" class="nav-link" onclick="showContent('p2')"><i class="fas fa-project-diagram"></i> Pertemuan 2</a></li>
+                    <li><a href="#" id="link-p3" class="nav-link" onclick="showContent('p3')"><i class="fas fa-table"></i> Pertemuan 3</a></li>
+                    <li><a href="#" id="link-p4" class="nav-link" onclick="showContent('p4')"><i class="fas fa-broom"></i> Pertemuan 4</a></li>
+                    <li><a href="#" id="link-p5" class="nav-link" onclick="showContent('p5')"><i class="fas fa-code"></i> Pertemuan 5</a></li>
+                    <li><a href="#" id="link-p6" class="nav-link" onclick="showContent('p6')"><i class="fas fa-search"></i> Pertemuan 6</a></li>
+                    <li><a href="#" id="link-p7" class="nav-link" onclick="showContent('p7')"><i class="fas fa-shield-alt"></i> Pertemuan 7</a></li>
+                </ul>
+            </nav>
+
+            <main class="content">
+            <section id="home" class="materi-section">
+                <div class="card">
+                    <h2>Selamat Datang di Portal Basis Data</h2>
+                    <p>Website ini dirancang untuk memudahkan mahasiswa dalam mengakses materi perkuliahan Basis Data secara terstruktur. Silakan gunakan menu di samping untuk mulai belajar.</p>
+                    <div class="stats-grid">
+                        <div class="stat-box"><h3>7</h3><p>Pertemuan</p></div>
+                        <div class="stat-box"><h3>14</h3><p>Topik</p></div>
+                        <div class="stat-box"><h3>2</h3><p>Tugas</p></div>
+                    </div>
+                </div>
+            </section>
+            <section id="p1" class="materi-section" style="display:none;">
+            <div class="card">
+                <h2>Pertemuan 1: Konsep Dasar Basis Data</h2>
+                    <p>Pada pertemuan ini, kita mempelajari dasar-dasar sistem basis data dan bagaimana ia berevolusi dari sistem pemrosesan file tradisional.</p>
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+
+                <h3>1. Data vs Informasi</h3>
+                    <p>Penting untuk membedakan kedua istilah ini dalam dunia basis data:</p>
+                    <ul style="margin-bottom: 20px; line-height: 1.8;">
+                        <li><strong>Data:</strong> Fakta mentah yang belum diolah (Contoh: Angka 200, Nama "Andi").</li>
+                        <li><strong>Informasi:</strong> Data yang sudah diproses dan memiliki arti bagi pengguna (Contoh: "Saldo rekening Andi adalah Rp 200.000").</li>
+                    </ul>
+
+                <h3>2. Karakteristik Pendekatan Basis Data</h3>
+                    <p>Mengapa kita menggunakan basis data? Berikut adalah karakteristik utamanya:</p>
+        
+                <div class="info-box">
+                    <dl style="margin-left: 10px;">
+                        <dt><strong>• Sifat Menjelaskan Diri Sendiri (Self-describing)</strong></dt>
+                        <dd style="margin-bottom: 10px; margin-left: 20px;">Sistem mengandung database itu sendiri dan deskripsinya (metadata).</dd>
+                
+                        <dt><strong>• Insulasi antara Program dan Data</strong></dt>
+                        <dd style="margin-bottom: 10px; margin-left: 20px;">Struktur data dapat diubah tanpa harus mengubah program aplikasinya.</dd>
+                
+                        <dt><strong>• Berbagi Data (Data Sharing)</strong></dt>
+                        <dd style="margin-left: 20px;">Data dapat diakses oleh banyak user secara bersamaan (multi-user).</dd>
+                    </dl>
+                </div>
+
+                <h3 style="margin-top: 25px;">3. Peran DBMS</h3>
+                <p><strong>Database Management System (DBMS)</strong> adalah perangkat lunak yang bertindak sebagai antarmuka antara user dan database. DBMS bertanggung jawab atas:</p>
+                <table class="materi-table">
+                <tr>
+                    <td style="width: 30%;"><strong>Keamanan</strong></td>
+                    <td>Mengatur siapa saja yang boleh mengakses data.</td>
+                </tr>
+                <tr>
+                    <td><strong>Integritas</strong></td>
+                    <td>Menjaga agar data tetap akurat dan konsisten.</td>
+                </tr>
+                    <tr>
+                        <td><strong>Pemulihan</strong></td>
+                        <td>Menyediakan mekanisme backup jika terjadi kegagalan sistem.</td>
+                    </tr>
+                </table>
+            </div>
+            </section>
+
+           
+
+            <section id="p2" class="materi-section" style="display:none;">
+                <div class="card">
+                    <h2>Pertemuan 2: Entity Relationship Diagram</h2>
+                    <p>Teknik pemodelan data sebelum diimplementasikan ke sistem.</p>
+                    <table class="materi-table">
+                        <tr><th>Simbol</th><th>Nama</th><th>Fungsi</th></tr>
+                        <tr><td>Persegi</td><td>Entitas</td><td>Objek di dunia nyata</td></tr>
+                        <tr><td>Elips</td><td>Atribut</td><td>Properti dari entitas</td></tr>
+                        <tr><td>Belah Ketupat</td><td>Relasi</td><td>Hubungan antar entitas</td></tr>
+                    </table>
+                </div>
+            </section>
+            <section id="p3" class="materi-section" style="display:none;">
+                <div class="card">
+                    <h2>Pertemuan 3: Model Data Relasional</h2>
+                    <p>Model data relasional adalah standar industri saat ini di mana data disusun dalam bentuk tabel (relasi) dua dimensi yang terdiri dari baris dan kolom.</p>
+                    
+                    <div class="info-box">
+                        <strong><i class="fas fa-lightbulb"></i> Tokoh Penting:</strong> 
+                        Konsep ini diusulkan oleh <strong>Dr. E.F. Codd</strong> pada tahun 1970 dan menjadi dasar bagi DBMS modern seperti MySQL, PostgreSQL, dan Oracle.
+                    </div>
+
+                    <h3>1. Terminologi Tabel</h3>
+                    <p>Dalam dunia akademik, terdapat istilah formal untuk menyebut bagian-bagian tabel:</p>
+                    <table class="materi-table">
+                        <thead>
+                            <tr>
+                                <th>Istilah Umum</th>
+                                <th>Istilah Relasional</th>
+                                <th>Keterangan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tabel</td>
+                                <td><strong>Relasi</strong></td>
+                                <td>Kumpulan data terorganisir</td>
+                            </tr>
+                            <tr>
+                                <td>Baris</td>
+                                <td><strong>Tupel</strong></td>
+                                <td>Satu baris record data utuh</td>
+                            </tr>
+                            <tr>
+                                <td>Kolom</td>
+                                <td><strong>Atribut</strong></td>
+                                <td>Karakteristik/properti data</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>2. Jenis-Jenis Key (Kunci)</h3>
+                    <p>Key digunakan untuk mengidentifikasi data secara unik dan menghubungkan antar tabel:</p>
+                    <div class="step">
+                        <ul>
+                            <li><strong>Super Key:</strong> Satu atau gabungan atribut yang dapat membedakan setiap baris secara unik.</li>
+                            <li><strong>Candidate Key:</strong> Super key dengan jumlah atribut paling minimal.</li>
+                            <li><strong>Primary Key:</strong> Kunci utama yang dipilih untuk mengidentifikasi baris (tidak boleh kosong/NULL).</li>
+                            <li><strong>Foreign Key:</strong> Atribut yang merujuk pada Primary Key di tabel lain (sebagai penghubung).</li>
+                        </ul>
+                    </div>
+
+                    <h3>3. Aturan Integritas</h3>
+                    <p>Untuk menjaga validitas data, model relasional mengenal dua aturan utama:</p>
+                    <div class="code-block" style="background: #f0f4f8; color: #2c3e50; border-left: 4px solid #2563eb;">
+                        <ol>
+                            <li><strong>Integritas Entitas:</strong> Primary Key tidak boleh berisi nilai NULL (kosong).</li>
+                            <li><strong>Integritas Referensial:</strong> Nilai Foreign Key harus ada di tabel asal (Primary Key) atau bernilai NULL.</li>
+                        </ol>
+                    </div>
+
+                    <h3>4. Kardinalitas Relasi</h3>
+                    <p>Menjelaskan batasan jumlah hubungan antar entitas:</p>
+                    <ul class="materi-list">
+                        <li><strong>One-to-One (1:1):</strong> Contoh: Satu warga negara memiliki satu NIK.</li>
+                        <li><strong>One-to-Many (1:N):</strong> Contoh: Satu dosen mengajar banyak mahasiswa.</li>
+                        <li><strong>Many-to-Many (N:M):</strong> Contoh: Banyak mahasiswa mengambil banyak mata kuliah.</li>
+                    </ul>
+                </div>
+            </section>
+            <section id="p4" class="materi-section" style="display:none;">
+                <div class="card">
+                    <h2>Pertemuan 4: Normalisasi Basis Data</h2>
+                    <p>Proses untuk meminimalisir redundansi data dan mencegah anomali.</p>
+                    <div class="step">
+                        <h4>1. 1NF (First Normal Form)</h4>
+                        <p>Menghilangkan grup berulang dan memastikan atomisitas data.</p>
+                        <h4>2. 2NF (Second Normal Form)</h4>
+                        <p>Memenuhi 1NF dan menghilangkan ketergantungan parsial.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="p5" class="materi-section" style="display:none;">
+                <div class="card">
+                    <h2>Pertemuan 5: SQL - Data Definition Language</h2>
+                    <p>Digunakan untuk mendefinisikan struktur database.</p>
+                    <div class="code-block">
+                        <code>
+                            CREATE TABLE Mahasiswa (<br>
+                            &nbsp;&nbsp;nim CHAR(10) PRIMARY KEY,<br>
+                            &nbsp;&nbsp;nama VARCHAR(100),<br>
+                            &nbsp;&nbsp;jurusan VARCHAR(50)<br>
+                            );
+                        </code>
+                    </div>
+                </div>
+            </section>
+            <section id="p6" class="materi-section" style="display:none;">
+                <div class="card">
+                    <h2>Pertemuan 6: Data Manipulation Language (DML)</h2>
+                    <p>DML digunakan untuk memanipulasi data yang ada di dalam objek basis data (tabel). Setelah struktur tabel dibuat dengan DDL, kita menggunakan DML untuk mengelola isinya.</p>
+                    
+                    <div class="info-box" style="margin-bottom: 30px;">
+                        <strong><i class="fas fa-info-circle"></i> Penting:</strong> Perintah DML tidak mengubah struktur tabel, hanya mengubah isi (baris/record) di dalamnya.
+                    </div>
+
+                    <h3 style="margin-top: 20px;">1. Perintah INSERT</h3>
+                    <p>Digunakan untuk memasukkan baris data baru ke dalam tabel.</p>
+                    <div class="code-block">
+                        <code>
+                            -- Menambah satu baris data <br>
+                            INSERT INTO Mahasiswa (nim, nama, jurusan) <br>
+                            VALUES ('202301001', 'Budi Santoso', 'Informatika');
+                        </code>
+                    </div>
+
+                    <h3 style="margin-top: 40px;">2. Perintah SELECT</h3>
+                    <p>Digunakan untuk menampilkan data dari satu atau lebih tabel.</p>
+                    <div class="code-block">
+                        <code>
+                            -- Menampilkan semua kolom dan semua baris <br>
+                            SELECT * FROM Mahasiswa; <br><br>
+                            -- Menampilkan kolom tertentu dengan kondisi <br>
+                            SELECT nama, jurusan FROM Mahasiswa <br>
+                            WHERE jurusan = 'Informatika';
+                        </code>
+                    </div>
+
+                    <h3 style="margin-top: 40px;">3. Perintah UPDATE</h3>
+                    <p>Digunakan untuk mengubah data yang sudah tersimpan di tabel.</p>
+                    <div class="code-block" style="border-left: 4px solid #f1c40f;">
+                        <code>
+                            -- Mengubah jurusan mahasiswa tertentu <br>
+                            UPDATE Mahasiswa <br>
+                            SET jurusan = 'Sistem Informasi' <br>
+                            WHERE nim = '202301001';
+                        </code>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #e74c3c; margin-top: 5px;">*Hati-hati: Selalu gunakan klausa WHERE agar tidak mengubah seluruh baris data!</p>
+
+                    <h3 style="margin-top: 40px;">4. Perintah DELETE</h3>
+                    <p>Digunakan untuk menghapus satu atau lebih baris data.</p>
+                    <div class="code-block" style="border-left: 4px solid #e74c3c;">
+                        <code>
+                            -- Menghapus data mahasiswa berdasarkan NIM <br>
+                            DELETE FROM Mahasiswa <br>
+                            WHERE nim = '202301001';
+                        </code>
+                    </div>
+
+                    <h3 style="margin-top: 40px;">Ringkasan Operasi CRUD</h3>
+                    <table class="materi-table">
+                        <thead>
+                            <tr>
+                                <th>Operasi</th>
+                                <th>Perintah SQL</th>
+                                <th>Deskripsi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Create</td>
+                                <td><strong>INSERT</strong></td>
+                                <td>Menambah data baru</td>
+                            </tr>
+                            <tr>
+                                <td>Read</td>
+                                <td><strong>SELECT</strong></td>
+                                <td>Membaca/Mengambil data</td>
+                            </tr>
+                            <tr>
+                                <td>Update</td>
+                                <td><strong>UPDATE</strong></td>
+                                <td>Memperbarui data</td>
+                            </tr>
+                            <tr>
+                                <td>Delete</td>
+                                <td><strong>DELETE</strong></td>
+                                <td>Menghapus data</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section id="p7" class="materi-section" style="display:none;">
+                <div class="card">
+                    <h2>Pertemuan 7: Keamanan Basis Data</h2>
+                    <p>Keamanan basis data mencakup perlindungan terhadap data dari akses yang tidak sah, kerusakan, atau modifikasi yang tidak diinginkan.</p>
+                    
+                    <div class="info-box" style="margin-top: 20px; background-color: #fff4f4; border-left-color: #e74c3c;">
+                        <strong><i class="fas fa-shield-alt"></i> Prinsip Utama (CIA):</strong>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li><strong>Confidentiality:</strong> Rahasia (Hanya user resmi yang bisa melihat).</li>
+                            <li><strong>Integrity:</strong> Data asli dan tidak dimanipulasi secara ilegal.</li>
+                            <li><strong>Availability:</strong> Data selalu siap saat dibutuhkan.</li>
+                        </ul>
+                    </div>
+
+                    <h3 style="margin-top: 40px;">1. Tingkatan Keamanan</h3>
+                    <p>Keamanan tidak hanya di dalam database, tapi berlapis-lapis:</p>
+                    <table class="materi-table">
+                        <tr>
+                            <th>Level</th>
+                            <th>Penjelasan</th>
+                        </tr>
+                        <tr>
+                            <td>Physical</td>
+                            <td>Keamanan lokasi server (Gedung, CCTV, Kunci pintu).</td>
+                        </tr>
+                        <tr>
+                            <td>Network</td>
+                            <td>Penggunaan Firewall dan enkripsi saat transmisi data.</td>
+                        </tr>
+                        <tr>
+                            <td>Operating System</td>
+                            <td>Keamanan akun login di komputer server.</td>
+                        </tr>
+                        <tr>
+                            <td>Database System</td>
+                            <td>Pengelolaan User dan Password di dalam DBMS.</td>
+                        </tr>
+                    </table>
+
+                    <h3 style="margin-top: 40px;">2. SQL Data Control Language (DCL)</h3>
+                    <p>Untuk mengelola akses user, kita menggunakan dua perintah utama:</p>
+                    
+                    <div style="margin-top: 15px;">
+                        <strong>A. GRANT (Memberikan Hak Akses)</strong>
+                        <div class="code-block">
+                            <code>
+                                -- Memberikan izin melihat tabel kepada user 'staff_admin' <br>
+                                GRANT SELECT, INSERT ON Mahasiswa TO staff_admin;
+                            </code>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 25px;">
+                        <strong>B. REVOKE (Mencabut Hak Akses)</strong>
+                        <div class="code-block" style="border-left: 4px solid #e67e22;">
+                            <code>
+                                -- Mencabut izin menghapus data dari user 'staff_admin' <br>
+                                REVOKE DELETE ON Mahasiswa FROM staff_admin;
+                            </code>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top: 40px;">3. Ancaman Basis Data: SQL Injection</h3>
+                    <p>Salah satu ancaman paling berbahaya adalah SQL Injection, di mana penyerang memasukkan kode SQL berbahaya melalui input form aplikasi.</p>
+                    
+                    <div class="info-box" style="background-color: #f8f9fa; border-left-color: #2c3e50;">
+                        <strong>Cara Mencegahnya:</strong>
+                        <ul style="margin-left: 20px;">
+                            <li>Gunakan <em>Prepared Statements</em> atau <em>Parameterized Queries</em>.</li>
+                            <li>Lakukan validasi input pada sisi aplikasi.</li>
+                            <li>Gunakan prinsip <strong>Least Privilege</strong> (Beri hak akses seminimal mungkin).</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            </main>
+        </div>
+
+        <footer>
+            <p>UAS Pemrograman Web novita © 2026 - Materi Basis Data</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
